@@ -5,6 +5,18 @@ export const ADD_USER = gql`
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
+        username
+        _id
+      }
+    }
+  }
+`
+
+export const LOGIN_USER = gql`
+  mutation Login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
         _id
         username
       }
@@ -12,26 +24,7 @@ export const ADD_USER = gql`
   }
 `;
 
-export const LOGIN_USER = gql`
-  mutation loginUser($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        username
-        email
-        savedBooks {
-          bookId
-          authors
-          description
-          title
-          image
-        }
-      }
-    }
-  }
-`;
-
-// GraphQL query for searching books on Google Books API
+// Don't think this is necessary
 export const GET_GOOGLE_BOOKS = gql`
   query searchGoogleBooks($searchTerm: String!) {
     searchGoogleBooks(searchTerm: $searchTerm) {
@@ -48,15 +41,13 @@ export const GET_GOOGLE_BOOKS = gql`
   }
 `;
 
-// GraphQL mutation for saving a book to the database
 export const SAVE_BOOK = gql`
-  mutation saveBook($bookInput: BookInput!) {
-    saveBook(bookInput: $bookInput) {
-      bookId
-      title
-      authors
-      description
-      image
+  mutation Mutation($id: ID, $criteria: BookInput) {
+    saveBook(_id: $id, criteria: $criteria) {
+      _id
+      savedBooks {
+        bookId
+      }
     }
   }
 `;
@@ -79,19 +70,12 @@ export const GET_ME = gql`
   }
 `;
 
-// GraphQL mutation to delete a saved book
 export const DELETE_BOOK = gql`
-  mutation deleteBook($bookId: ID!) {
-    deleteBook(bookId: $bookId) {
+  mutation Mutation($id:ID, $bookId: String!) {
+    removeBook(bookId: $bookId, _id: $id) {
       _id
-      username
-      email
       savedBooks {
         bookId
-        title
-        authors
-        description
-        image
       }
     }
   }
