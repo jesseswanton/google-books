@@ -5,7 +5,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://jswan7692:mongodb7@cl
     useNewUrlParser: true,
     useUnifiedTopology: true,
     ssl: true,  // Force SSL
-    sslValidate: false,  // Disable certificate validation (only if needed)
   })
     .then(() => {
       console.log('MongoDB connected');
