@@ -37,14 +37,6 @@ View Saved Books: Navigate to the "Saved Books" page to view your saved books an
 
 ![view](client/src/assets/gb3.PNG)
 
-## GraphQL Endpoints
+## Deployed application
 
-Queries:
-
-me: Fetches the logged-in user's data and their saved books.
-
-Mutations:
-
-addBook(bookInput: BookInput): Saves a book to the user's library.
-
-removeBook(bookId: ID!): Removes a book from the user's library.
+https://google-books-b719.onrender.com
