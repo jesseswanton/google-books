@@ -27,15 +27,15 @@ Sign up to create a new account or log in.
 
 Use the search bar to find books by title. The results are fetched from the Google Books API.
 
-![search](client/src/assets/gb2.png)
+![search](client/src/assets/gb2.PNG)
 
 Save Books: When logged in, you can save books to your profile by clicking the "Save this Book" button.
 
-![save](client/src/assets/gb1.png)
+![save](client/src/assets/gb1.PNG)
 
 View Saved Books: Navigate to the "Saved Books" page to view your saved books and delete any books you no longer want in your library.
 
-![view](client/src/assets/gb3.png)
+![view](client/src/assets/gb3.PNG)
 
 ## GraphQL Endpoints
 
