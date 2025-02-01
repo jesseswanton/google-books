@@ -1,31 +1,19 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+import Auth from './utils/auth';
 
 import Navbar from './components/Navbar';
 
-// Set up GraphQL API endpoint
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
-
-// Set up authentication middleware for Apollo Client
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-// Initialize Apollo Client
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache(),
-});
+  headers: {
+    //fixes null context issue
+    authorization: Auth.loggedIn() ? `Bearer ${Auth.getToken()}` : '',
+  },
+})
 
 function App() {
   return (
