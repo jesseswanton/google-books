@@ -23,19 +23,19 @@ JWT_SECRET=your-jwt-secret
 ## Usage
 Sign up to create a new account or log in.
 
-![login](./client/src/assets/gb4.png)
+![login](client/src/assets/gb4.PNG)
 
 Use the search bar to find books by title. The results are fetched from the Google Books API.
 
-![login](./client/src/assets/gb2.png)
+![search](client/src/assets/gb2.png)
 
 Save Books: When logged in, you can save books to your profile by clicking the "Save this Book" button.
 
-![login](./client/src/assets/gb1.png)
+![save](client/src/assets/gb1.png)
 
 View Saved Books: Navigate to the "Saved Books" page to view your saved books and delete any books you no longer want in your library.
 
-![login](./client/src/assets/gb3.png)
+![view](client/src/assets/gb3.png)
 
 ## GraphQL Endpoints
 
